@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Controller for handling dashboard-related functionality.
+ */
 class DashboardController extends Controller
 {
     /**
