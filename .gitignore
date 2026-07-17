@@ -1,1 +1,7 @@
-node_modules/\n.env\nvendor/\npublic/build/\nstorage/*.key
+node_modules/
+.env
+.env.*
+vendor/
+public/build/
+storage/*.key
+*.log
