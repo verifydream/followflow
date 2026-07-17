@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('company')->nullable();
             $table->integer('value')->default(0);
             $table->string('status')->default('new');
-            $table->timestamp('last_contact');
+            $table->timestamp('last_contact')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

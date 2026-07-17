@@ -5,3 +5,4 @@ vendor/
 public/build/
 storage/*.key
 *.log
+.phpunit.result.cache
