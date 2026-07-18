@@ -5,7 +5,16 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Controller for managing user authentication.
+ */
 class AuthController extends Controller {
+    /**
+     * Register a new user and return an authentication token.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return array
+     */
     public function register(Request $request) {
         $data = $request->validate(['name' => 'required', 'email' => 'required|email|unique:users', 'phone' => 'nullable']);
         $data['password'] = Hash::make('default');
@@ -14,6 +23,12 @@ class AuthController extends Controller {
         return ['user' => $user, 'token' => $token];
     }
 
+    /**
+     * Authenticate a user and return an authentication token.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return array|\Illuminate\Http\JsonResponse
+     */
     public function login(Request $request) {
         $user = User::where('email', $request->email)->first();
         if (!$user) return response()->json(['error' => 'User not found'], 404);
